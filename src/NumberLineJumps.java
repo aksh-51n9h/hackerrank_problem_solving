@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
 
-class Result {
+class NumberLineJumps {
     public static String kangaroo(int x1, int v1, int x2, int v2) {
         if(x1>x2 && v1>=v2){
             return "NO";
@@ -28,9 +28,6 @@ class Result {
         return ((x2 - x1) % (v2 - v1) == 0)?"YES":"NO";
     }
 
-}
-
-public class Solution {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
@@ -45,7 +42,7 @@ public class Solution {
 
         int v2 = Integer.parseInt(firstMultipleInput[3]);
 
-        String result = Result.kangaroo(x1, v1, x2, v2);
+        String result = NumberLineJumps.kangaroo(x1, v1, x2, v2);
 
         bufferedWriter.write(result);
         bufferedWriter.newLine();
@@ -53,4 +50,6 @@ public class Solution {
         bufferedReader.close();
         bufferedWriter.close();
     }
+
 }
+

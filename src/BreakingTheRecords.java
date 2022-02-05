@@ -1,42 +1,35 @@
 import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
+import java.util.ArrayList;
+import java.util.List;
 
-class Result {
+class BreakingTheRecords {
 
     public static List<Integer> breakingRecords(List<Integer> scores) {
         int low = scores.get(0);
         int high = scores.get(0);
-        
+
         int max = 0, min = 0;
-        
-        int i=1;
-        while(i<scores.size()){
+
+        int i = 1;
+        while (i < scores.size()) {
             int score = scores.get(i++);
-            
-            if (score>high){
+
+            if (score > high) {
                 max++;
                 high = score;
-            }else if(score<low){
+            } else if (score < low) {
                 min++;
                 low = score;
             }
         }
-        
+
         List<Integer> res = new ArrayList<Integer>();
         res.add(max);
         res.add(min);
-        
+
         return res;
     }
 
-}
-
-public class BreakingTheRecords {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
@@ -52,7 +45,7 @@ public class BreakingTheRecords {
             scores.add(scoresItem);
         }
 
-        List<Integer> result = Result.breakingRecords(scores);
+        List<Integer> result = BreakingTheRecords.breakingRecords(scores);
 
         for (int i = 0; i < result.size(); i++) {
             bufferedWriter.write(String.valueOf(result.get(i)));
