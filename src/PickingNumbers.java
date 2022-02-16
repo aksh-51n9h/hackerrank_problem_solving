@@ -24,8 +24,9 @@ public class PickingNumbers {
                 continue;
             }
 
-            if (freq[i] + freq[i + 1] > maxCount) {
-                maxCount = freq[i] + freq[i + 1];
+            int count = freq[i] + freq[i + 1];
+            if (count > maxCount) {
+                maxCount = count;
             }
         }
 
